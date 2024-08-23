@@ -4,7 +4,7 @@ export const fileUpload = async(file)=>{
 
     if(!file) throw new Error('no tenemos ninfun archivo')
 
-    const cloudUrl = import.meta.env.VITE_CLOUD_URL
+    const cloudUrl = 'https://api.cloudinary.com/v1_1/deo6m0eyk/upload'
 
     const formData = new FormData()
 

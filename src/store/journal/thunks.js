@@ -33,11 +33,14 @@ export const startNewNote = ()=>{
 export const startLoadingNotes = ()=>{
     return async (dispatch, getState) =>{
         const { uid} = getState().auth
+        
         if(!uid) throw new Error('uid  del usuario no existe')
         
         const notes = await loadNotes(uid)
     
         dispatch(SetNotes(notes))
+        
+        
     }
 }
 
@@ -71,6 +74,7 @@ export const startUploandingFiles = (files = [])=>{
         }
 
         const photoUrls = await Promise.all(fileUploadPromise)
+        console.log(photoUrls)
         dispatch( SetPhotosActiveNote(photoUrls))
 
     }

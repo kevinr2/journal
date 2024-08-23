@@ -14,7 +14,7 @@ import { startDeletetingNote, startSaveNote, startUploandingFiles } from '../../
 export const NoteView = () => {
 
     const dispatch = useDispatch()
-    const { active:note,messageSaved, isSaving} = useSelector(state => state.journal)
+    const { active:note,messageSaved, isSaving,} = useSelector(state => state.journal)
      const {body, title, date, onInputChange,formState} = useForm(note)
 
      useEffect(() => {
@@ -44,6 +44,7 @@ export const NoteView = () => {
      const onDelete = ()=>{
         dispatch(startDeletetingNote())
      }
+    
   return (
     <Grid container direction='row' justifyContent='space-between' alignItems='center' sx={{ mb: 1 }}>
         <Grid item>
@@ -113,8 +114,6 @@ export const NoteView = () => {
             </Button>
         </Grid>
         <ImagesGallery images={note.imageUrls} />
-        
-
     </Grid>
   )
 }
